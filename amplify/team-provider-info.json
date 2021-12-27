@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-leazeitcognito-dev-210052-authRole",
+      "UnauthRoleArn": "arn:aws:iam::880302359385:role/amplify-leazeitcognito-dev-210052-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::880302359385:role/amplify-leazeitcognito-dev-210052-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-leazeitcognito-dev-210052-deployment",
+      "UnauthRoleName": "amplify-leazeitcognito-dev-210052-unauthRole",
+      "StackName": "amplify-leazeitcognito-dev-210052",
+      "StackId": "arn:aws:cloudformation:ap-south-1:880302359385:stack/amplify-leazeitcognito-dev-210052/68e09e00-2203-11ec-b661-06b95ac152c8",
+      "AmplifyAppId": "d1yknlxlz361av"
+    },
+    "categories": {
+      "auth": {
+        "leazeitcognito": {}
+      }
+    }
+  }
+}

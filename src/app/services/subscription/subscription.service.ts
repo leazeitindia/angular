@@ -13,8 +13,12 @@ export class SubscriptionService {
 
   subscribeNewsLetter(subscription: Subscription): Observable<any> {
     return this.http.post<string>(
-      `https://getform.io/f/810cd93f-a92f-4e85-a216-f4315e0f37da`,
+      `${this.baseUrl}/subscriptions/add`,
       subscription
     );
+  }
+
+  getAllSubscribers(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/subscriptions/get`);
   }
 }

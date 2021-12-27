@@ -1,13 +1,26 @@
-<input type="checkbox" id="active">
+<!--Important link source from https://bootsnipp.com/snippets/ooa9M-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<header class="site-header">
+  <div class="wrapper site-header__wrapper">
+    <a href="" class="brand" id="brand">Leazeit</a>
+    <nav class="nav">
+      <button class="nav__toggle myBtn" aria-expanded="false" type="button" (click)="toggleMenu(navW)">
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+      </button>
+      <ul class="nav__wrapper myClose" #navW>
+        <li class="nav__item nav__item--end"><a href="">Home</a></li>
+        <li class="nav__item"><a href="property-list">Propert List</a></li>
+        <li class="nav__item " *ngIf="!isLoggedIn"><a href="login">Login</a></li>
+        <li class="nav__item" *ngIf="!isLoggedIn"><a href="signup">Sign Up</a></li>
+        <li class="nav__item" style="color: white;" *ngIf="isLoggedIn" (click)="logout()"><a >Logout</a></li>
+      </ul>
+    </nav>
+  </div>
 
-<label for="active" class="menu-btn"><span></span></label>
-<label for="active" class="close"></label>
-<div class="wrapper">
-  <ul>
-    <li><a href="">Home</a></li>
-    <li><a href="property-list/all">Property</a></li>
-    <li><a href="login">Login</a></li>
-    <li><a href="signup">SignUp</a></li>
-  </ul>
-</div>
+</header>

@@ -5,14 +5,12 @@ import { SubscriptionService } from 'src/app/services/subscription/subscription.
 
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent implements OnInit {
-
   formValidationMessage: string;
   formResponseMessage: string;
   formErrorMessage: string;
@@ -20,33 +18,46 @@ export class FooterComponent implements OnInit {
 
   constructor(private subscriptionService: SubscriptionService) {
     this.subscriptionForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email])
+      email: new FormControl('', [Validators.required, Validators.email]),
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.getAllSubscribers();
+  }
 
-
-  subscribeNewsLetter(){
-    if (this.subscriptionForm.invalid){
-      this.formValidationMessage = "Please enter a valid email";
+  subscribeNewsLetter() {
+    if (this.subscriptionForm.invalid) {
+      this.formValidationMessage = 'Please enter a valid email';
       return;
     }
-    this.formValidationMessage = "";
-    this.subscriptionService.subscribeNewsLetter(this.subscriptionForm.value).subscribe(
+    this.formValidationMessage = '';
+    this.subscriptionService
+      .subscribeNewsLetter(this.subscriptionForm.value)
+      .subscribe(
+        (response) => {
+          this.subscriptionForm.reset;
+          this.formResponseMessage = 'Subscribed successfully!';
+          this.formErrorMessage = '';
+        },
+        (error: HttpErrorResponse) => {
+          this.formResponseMessage = 'Subscribed successfully.';
+          this.formErrorMessage = '';
+          this.subscriptionForm.reset;
+          // this.formErrorMessage = error.error.errorDetails;
+          // this.formResponseMessage="";
+        }
+      );
+  }
+
+  getAllSubscribers() {
+    this.subscriptionService.getAllSubscribers().subscribe(
       (response) => {
-        this.subscriptionForm.reset;
-        this.formResponseMessage = "Subscribed successfully!"
-        this.formErrorMessage = "";
+        console.log(response);
       },
       (error: HttpErrorResponse) => {
-        this.formResponseMessage = "Subscribed successfully."
-        this.formErrorMessage = "";
-        this.subscriptionForm.reset;
-        // this.formErrorMessage = error.error.errorDetails;
-        // this.formResponseMessage="";
+        console.log(error);
       }
     );
-
   }
 }

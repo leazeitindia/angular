@@ -3,5 +3,20 @@ body {
   color: #000;
   margin: 0;
   padding: 0;
-  /* background-color: #2CCCC4; */
+  background-color: #24252c;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #000000;
+}
+.green-snackbar {
+  background-color: #5cb85c;
+}
+.red-snackbar {
+  background-color: #dc143c;
 }

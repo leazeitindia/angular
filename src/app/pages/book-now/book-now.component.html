@@ -1,0 +1,16 @@
+<div class="container">
+  <h2 mat-dialog-title>Please fill the below details</h2>
+
+  <mat-dialog-content>
+    <input type="tel" placeholder="Aadhaar Number">
+    <input type="tel" placeholder="Phone Number">
+    <input type="tel" placeholder="Alternate Phone Number">
+    <input type="text" placeholder="Student ID">
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button (click)="book()">Confirm</button>
+  </mat-dialog-actions>
+
+</div>
